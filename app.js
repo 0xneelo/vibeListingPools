@@ -275,12 +275,12 @@ function drawDepositsChart() {
         
         // Deposit bar (above zero line)
         if (d.deposit > 0) {
-            svg += `<rect x="${x}" y="${chartHeight / 2 + 10 - depositHeight}" width="${barWidth}" height="${depositHeight}" fill="#00d4ff" rx="3"/>`;
+            svg += `<rect x="${x}" y="${chartHeight / 2 + 10 - depositHeight}" width="${barWidth}" height="${depositHeight}" fill="#188AFD" rx="3"/>`;
         }
         
         // Withdraw bar (below zero line)
         if (d.withdraw > 0) {
-            svg += `<rect x="${x + barWidth + 5}" y="${chartHeight / 2 + 10}" width="${barWidth}" height="${withdrawHeight}" fill="#ff36ab" rx="3"/>`;
+            svg += `<rect x="${x + barWidth + 5}" y="${chartHeight / 2 + 10}" width="${barWidth}" height="${withdrawHeight}" fill="#FB88FF" rx="3"/>`;
         }
         
         // Date label
@@ -335,9 +335,9 @@ function drawPNLChart() {
     svg += `
         <defs>
             <linearGradient id="pnlGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3"/>
-                <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.1"/>
-                <stop offset="100%" style="stop-color:#ff36ab;stop-opacity:0.3"/>
+                <stop offset="0%" style="stop-color:#188AFD;stop-opacity:0.3"/>
+                <stop offset="50%" style="stop-color:#188AFD;stop-opacity:0.1"/>
+                <stop offset="100%" style="stop-color:#FB88FF;stop-opacity:0.3"/>
             </linearGradient>
         </defs>
     `;
@@ -362,11 +362,11 @@ function drawPNLChart() {
     svg += `<path d="${areaD}" fill="url(#pnlGradient)" opacity="0.5"/>`;
     
     // Line
-    svg += `<path d="${pathD}" fill="none" stroke="#00d4ff" stroke-width="2"/>`;
+    svg += `<path d="${pathD}" fill="none" stroke="#188AFD" stroke-width="2"/>`;
     
     // Points
     points.forEach(p => {
-        const color = p.y >= 0 ? '#00d4ff' : '#ff36ab';
+        const color = p.y >= 0 ? '#188AFD' : '#FB88FF';
         svg += `<circle cx="${scaleX(p.x)}" cy="${scaleY(p.y)}" r="3" fill="${color}"/>`;
     });
     
